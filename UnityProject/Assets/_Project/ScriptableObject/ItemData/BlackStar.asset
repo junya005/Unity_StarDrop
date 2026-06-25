@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a1a48560feaab47b30b6bd071c110b, type: 3}
+  m_Name: BlackStar
+  m_EditorClassIdentifier: 
+  itemID: 2
+  itemGraphyic: {fileID: 0}
+  effect: {fileID: 6537670834609046011, guid: d037c6b8283b3554f8828c7ec1938acb, type: 3}
+  scorePoint: 100
+  damagePoint: 20
+  healHPPoint: 0
+  healEnergyPoint: 0
