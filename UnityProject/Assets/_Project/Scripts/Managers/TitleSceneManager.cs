@@ -7,16 +7,28 @@ public class TitleSceneManager : MonoBehaviour
     [SerializeField]
     private string _nextSceneName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField]
+    private GameObject _creditPanel;
 
-    }
+    private float _inputInterval = 0.2f;
+
+    private float time = 0.0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && CheckInputSpetialKeys())
+        if(time < _inputInterval)
+        {
+            time += Time.deltaTime;
+            return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            _creditPanel.SetActive(!_creditPanel.activeSelf);
+        }
+
+        if (Input.anyKeyDown && CheckInputSpetialKeys() && !_creditPanel.activeSelf)
         {
             LoadingManager.Instance.ChangeScene(_nextSceneName);
         }

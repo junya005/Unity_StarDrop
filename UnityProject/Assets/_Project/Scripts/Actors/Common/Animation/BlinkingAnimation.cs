@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class BlinkingAnimation : MonoBehaviour
 {
     private Image _image;
     private SpriteRenderer _spriteRenderer;
+    private TextMeshProUGUI _textMeshProUGUI;
     private Tweener tween;
 
     [SerializeField]
@@ -32,6 +34,15 @@ public class BlinkingAnimation : MonoBehaviour
         {
             _spriteRenderer = spriteRendererComponent;
             tween = _spriteRenderer.DOFade(0.0f, _fadeDuration).SetLoops(-1, loopType: LoopType.Yoyo).
+                                                        OnStepComplete(() =>
+                                                        { StartCoroutine(AnimStop(_stopTime)); }
+                                                        );
+        }
+
+        if (TryGetComponent<TextMeshProUGUI>(out var textMeshProUGUIComponent))
+        {
+            _textMeshProUGUI = textMeshProUGUIComponent;
+            tween = _textMeshProUGUI.DOFade(0.0f, _fadeDuration).SetLoops(-1, loopType: LoopType.Yoyo).
                                                         OnStepComplete(() =>
                                                         { StartCoroutine(AnimStop(_stopTime)); }
                                                         );
